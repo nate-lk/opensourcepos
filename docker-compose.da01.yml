@@ -1,0 +1,59 @@
+name: opensourcepos-da01
+
+services:
+  mysql:
+    image: mariadb:10.5
+    restart: unless-stopped
+    expose:
+      - "3306"
+    volumes:
+      - mysql:/var/lib/mysql:rw
+    environment:
+      MYSQL_ROOT_PASSWORD: pointofsale
+      MYSQL_DATABASE: ospos
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: pointofsale
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "mariadb-admin ping -h 127.0.0.1 -uadmin -ppointofsale --silent",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  ospos:
+    image: jekkos/opensourcepos:master
+    restart: unless-stopped
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8088:80"
+    volumes:
+      - uploads:/app/public/uploads
+      - logs:/app/writable/logs
+    environment:
+      CI_ENVIRONMENT: production
+      ALLOWED_HOSTNAMES: localhost:8088,127.0.0.1:8088,host.docker.internal:8088
+      FORCE_HTTPS: "false"
+      PHP_TIMEZONE: UTC
+      MYSQL_USERNAME: admin
+      MYSQL_PASSWORD: pointofsale
+      MYSQL_DB_NAME: ospos
+      MYSQL_HOST_NAME: mysql
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "php -r \"exit(@get_headers('http://localhost/') === false ? 1 : 0);\"",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+volumes:
+  uploads:
+  logs:
+  mysql:
