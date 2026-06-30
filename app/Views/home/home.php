@@ -1,6 +1,7 @@
 <?php
 /**
  * @var array $allowed_modules
+ * @var string $daily_register_tip
  */
 ?>
 
@@ -11,6 +12,11 @@
 </script>
 
 <h3 class="text-center"><?= lang('Common.welcome_message') ?></h3>
+
+<section class="daily_register_tip" aria-label="<?= esc(lang('Common.daily_tip')) ?>">
+    <strong><?= lang('Common.daily_tip') ?></strong>
+    <span><?= esc($daily_register_tip ?? lang('Common.daily_tip_count_drawer')) ?></span>
+</section>
 
 <div id="home_module_list">
     <?php foreach($allowed_modules as $module) { ?>

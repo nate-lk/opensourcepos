@@ -84,6 +84,26 @@ a.none {
     text-align: center;
 }
 
+.daily_register_tip {
+    max-width: 34em;
+    margin: 1.25em auto 0;
+    padding: 0.85em 1.1em;
+    color: #2C3E50;
+    background: #F7FBFC;
+    border: 1px solid #DCE4EC;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.daily_register_tip strong,
+.daily_register_tip span {
+    display: block;
+}
+
+.daily_register_tip strong {
+    margin-bottom: 0.25em;
+}
+
 .module_item {
     min-width: 7em;
     display: inline-block;

@@ -19,7 +19,27 @@ class Home extends Secure_Controller
     public function getIndex(): string
     {
         $logged_in = $this->employee->is_logged_in();
-        return view('home/home');
+
+        return view('home/home', [
+            'daily_register_tip' => $this->getDailyRegisterTip()
+        ]);
+    }
+
+    /**
+     * @return string
+     */
+    private function getDailyRegisterTip(): string
+    {
+        $tips = [
+            lang('Common.daily_tip_count_drawer'),
+            lang('Common.daily_tip_review_discounts'),
+            lang('Common.daily_tip_update_inventory'),
+            lang('Common.daily_tip_check_receipts')
+        ];
+
+        $dayOfYear = (int) date('z');
+
+        return $tips[$dayOfYear % count($tips)];
     }
 
     /**
