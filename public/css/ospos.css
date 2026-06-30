@@ -114,6 +114,26 @@ a.none {
     display: block;
 }
 
+.office_snapshot {
+    max-width: 30em;
+    margin: 1.25em auto 0;
+    padding: 0.8em 1em;
+    color: #2C3E50;
+    background: #FFFDF6;
+    border: 1px solid #E8DCA8;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.office_snapshot strong,
+.office_snapshot span {
+    display: block;
+}
+
+.office_snapshot strong {
+    margin-bottom: 0.25em;
+}
+
 #config_wrapper {
     text-align: center;
 }

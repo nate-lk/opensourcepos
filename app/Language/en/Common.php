@@ -62,6 +62,8 @@ return [
     "no"                             => "No",
     "no_persons_to_display"          => "There are no people to display.",
     "none_selected_text"             => "[Select]",
+    "office_snapshot"                => "Office snapshot",
+    "office_snapshot_modules"        => "{0} office modules are available for your role.",
     "or"                             => "OR",
     "people"                         => "",
     "phone_number"                   => "Phone Number",

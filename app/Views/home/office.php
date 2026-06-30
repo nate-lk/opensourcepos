@@ -12,6 +12,11 @@
 
 <h3 class="text-center"><?= lang('Common.welcome_message') ?></h3>
 
+<section class="office_snapshot" aria-label="<?= esc(lang('Common.office_snapshot')) ?>">
+    <strong><?= lang('Common.office_snapshot') ?></strong>
+    <span><?= lang('Common.office_snapshot_modules', [count($allowed_modules)]) ?></span>
+</section>
+
 <div id="office_module_list">
     <?php foreach ($allowed_modules as $module) { ?>
         <div class="module_item" title="<?= lang("Module.$module->module_id" . '_desc') ?>">
