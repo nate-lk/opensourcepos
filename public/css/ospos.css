@@ -163,6 +163,11 @@ a.none {
     clear: both;
 }
 
+.footer_rendered_at {
+    margin-top: 0.35em;
+    color: #999999;
+}
+
 a.rollover img {
     padding: 3px;
 }

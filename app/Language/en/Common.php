@@ -65,6 +65,7 @@ return [
     "office_snapshot"                => "Office snapshot",
     "office_snapshot_modules"        => "{0} office modules are available for your role.",
     "or"                             => "OR",
+    "page_rendered_at"               => "Page rendered at {0}",
     "people"                         => "",
     "phone_number"                   => "Phone Number",
     "phone_number_required"          => "",

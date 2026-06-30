@@ -17,6 +17,9 @@ use Config\OSPOS;
                         <?= esc(substr(config(OSPOS::class)->commit_sha1, 0, 6)); ?>
                     </a>
                 </strong>.
+                <div class="footer_rendered_at">
+                    <?= lang('Common.page_rendered_at', [date('H:i')]) ?>
+                </div>
             </div>
         </div>
     </body>
